@@ -1,6 +1,6 @@
-const stdin = process.stdin
-stdin.resume()
-stdin.setEncoding('utf8');
+// const stdin = process.stdin
+// stdin.resume()
+// stdin.setEncoding('utf8');
 
 const net = require('net');
 const connect = function(data) {
@@ -10,32 +10,11 @@ const connect = function(data) {
   });
   // interpret incoming data as text
   conn.setEncoding('utf8'); // setting encoding into human readable msg
-  // conn.on('connect', () => {
-  //   conn.write(data);
-  // })
-  // conn.on('data', (data) => {
-  //   conn.write("Name: RIS");
-  // })
-  
-
-  // stdin.on('connect', (data) => {
-  //   conn.write('Name: Ris');
-  // })
 
   conn.on('connect', (data) => {  
     console.log("Successfully connected to game server");
-    conn.write('Move: up');
-    // for (let i = 1; i <= 10 ; i++) { // moveup with timeout delay
-    //   setTimeout(() => {
-    //     conn.write('Move: left');
-    //   }, 100 * i)
-    // };
+    // conn.write('Move: up');
     
-    // for (let i = 1; i <= 10 ; i++) { //move up with setInterval
-    //   setInterval(() => {
-    //     conn.write('Move: left');
-    //   }, 100 )
-    // };
   })
   conn.on('data', (data) => { //get message back from server
     console.log('NEW MESSAGE FROM THE SERVER', data)
@@ -44,6 +23,19 @@ const connect = function(data) {
   //   console.log(data);
   // })
   return conn;
-  conn
 }
 module.exports = connect;
+
+
+
+// for (let i = 1; i <= 10 ; i++) { // moveup with timeout delay
+    //   setTimeout(() => {
+    //     conn.write('Move: left');
+    //   }, 100 * i)
+    // };
+
+    // for (let i = 1; i <= 10 ; i++) { //move up with setInterval
+    //   setInterval(() => {
+    //     conn.write('Move: left');
+    //   }, 100 )
+    // };
